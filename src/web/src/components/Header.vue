@@ -90,6 +90,14 @@
           </b-modal>
         </div>
       </b-navbar-nav>
+      <b-form-checkbox
+        class="dark-mode-switch"
+        :checked="$store.state.darkMode"
+        @change="$store.commit('TOGGLE_DARK_MODE')"
+        switch
+      >
+        <font-awesome-icon class="style-icon" :icon="faMoon" />
+      </b-form-checkbox>
     </b-navbar>
     <hr />
   </div>
@@ -97,6 +105,8 @@
 
 <script>
 import { login, logout } from "@/services/UserService";
+
+import { faMoon } from "@fortawesome/free-solid-svg-icons";
 
 import SignUpComponent from "@/components/SignUp";
 
@@ -110,11 +120,11 @@ export default {
   },
   data() {
     return {
+      faMoon,
       form: {
         email: "",
         password: "",
       },
-
       isLoggedIn: false,
       sessionID: "",
       userName: "",
@@ -125,6 +135,7 @@ export default {
   created() {
     this.sessionID = this.$cookies.get("sessionID");
     this.userName = this.$cookies.get("userName");
+
     if (this.sessionID == "") {
       console.log("not logged in");
     } else {
@@ -204,5 +215,9 @@ hr {
 
 #signUpButton {
   margin-left: 20px;
+}
+
+.dark-mode-switch {
+  margin-left: 1em;
 }
 </style>
