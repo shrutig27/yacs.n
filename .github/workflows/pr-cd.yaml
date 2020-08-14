@@ -5,7 +5,27 @@ on:
     branches: [master]
 
 jobs:
+  wait_ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Wait for unit tests to complete
+        uses: fountainhead/action-wait-for-check@v1.0.0
+        id: wait-for-ci
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          checkName: CI
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Check if unit tests were successful
+        if: steps.wait-for-ci.outputs.conclusion != 'success'
+        run: exit 1
+
+      - name: testing
+        run: exit 1
+
   lint:
+    needs: wait_ci
     runs-on: ubuntu-latest
 
     steps:
