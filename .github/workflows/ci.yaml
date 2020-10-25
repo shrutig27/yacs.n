@@ -144,7 +144,6 @@ jobs:
                   -v
           }
           load_semester "summer-2020.csv"
-          load_semester "fall-2020.csv"
 
       - name: Run cypress
         uses: cypress-io/github-action@v2

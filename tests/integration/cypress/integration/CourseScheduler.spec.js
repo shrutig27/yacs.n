@@ -4,7 +4,7 @@ import { CourseSchedulerPage } from "../support/pages/CourseScheduler.page";
 import { CourseExplorerPage } from "../support/pages/CourseExplorerPage.page";
 
 context("Course Scheduler Page", () => {
-  const page = new CourseSchedulerPage("FALL 2020");
+  const page = new CourseSchedulerPage("SUMMER 2020");
 
   beforeEach(() => {
     page.visit();

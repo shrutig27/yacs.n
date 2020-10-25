@@ -13,7 +13,7 @@ context("Course Explorer Page", () => {
   it("should go to schedule page", () => {
     page.header.goToSchedulePage();
 
-    const schedulePage = new CourseSchedulerPage("FALL 2020");
+    const schedulePage = new CourseSchedulerPage("SUMMER 2020");
     schedulePage.assertLoaded();
   });
 });
