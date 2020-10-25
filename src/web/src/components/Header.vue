@@ -6,34 +6,43 @@
     toggleable="md"
     type="primary"
     variant="light"
+    data-cy="header"
   >
     <b-navbar-brand
       class="align-middle text-dark"
       :to="{ name: 'CourseScheduler' }"
+      data-cy="brand"
     >
       YACS
     </b-navbar-brand>
-    <b-nav-text class="text-secondary">{{ selectedSemester }}</b-nav-text>
+    <b-nav-text class="text-secondary" data-cy="semester">
+      {{ selectedSemester }}
+    </b-nav-text>
     <b-navbar-toggle
       id="header-navbar-collapse-toggle"
       target="header-navbar-collapse"
+      data-cy="navbar-toggle"
     >
       <font-awesome-icon icon="bars" />
     </b-navbar-toggle>
     <b-collapse id="header-navbar-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item :to="{ name: 'CourseScheduler' }">
+        <b-nav-item :to="{ name: 'CourseScheduler' }" data-cy="schedule">
           <font-awesome-icon icon="calendar" />
           Schedule
         </b-nav-item>
-        <b-nav-item :to="{ name: 'CourseExplorer' }">
+        <b-nav-item :to="{ name: 'CourseExplorer' }" data-cy="explore">
           <font-awesome-icon icon="list" />
           Explore
         </b-nav-item>
       </b-navbar-nav>
       <!-- If user has logged in -->
       <b-navbar-nav class="ml-auto">
-        <b-nav-form id="darkmode-toggle-form" class="mr-md-2">
+        <b-nav-form
+          id="darkmode-toggle-form"
+          class="mr-md-2"
+          data-cy="darkmode-toggle"
+        >
           <b-form-checkbox
             :checked="$store.state.darkMode"
             @change="toggle_style()"
@@ -48,8 +57,12 @@
 
         <b-nav-item-dropdown right v-if="sessionID !== null">
           <!-- Using 'button-content' slot -->
-          <template v-slot:button-content>Hi, {{ userName }}</template>
-          <b-dropdown-item @click="logOut">Sign Out</b-dropdown-item>
+          <template v-slot:button-content data-cy="signed-in-user">
+            Hi, {{ userName }}
+          </template>
+          <b-dropdown-item @click="logOut" data-cy="sign-out">
+            Sign Out
+          </b-dropdown-item>
         </b-nav-item-dropdown>
 
         <!-- If user has not logged in -->
@@ -60,6 +73,7 @@
             size="sm"
             variant="secondary"
             class="mr-md-2"
+            data-cy="login"
           >
             Log In
           </b-button>
@@ -69,6 +83,7 @@
             v-b-modal.signup-modal
             size="sm"
             variant="primary"
+            data-cy="sign-up"
           >
             Sign Up
           </b-button>

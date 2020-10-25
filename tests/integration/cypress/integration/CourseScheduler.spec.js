@@ -1,64 +1,19 @@
 /// <reference types="cypress" />
 
+import { CourseSchedulerPage } from "../support/pages/CourseScheduler.page";
+import { CourseExplorerPage } from "../support/pages/CourseExplorerPage.page";
+
 context("Course Scheduler Page", () => {
+  const page = new CourseSchedulerPage("FALL 2020");
+
   beforeEach(() => {
-    cy.visit("/?semester=SUMMER 2020");
+    page.visit();
   });
 
-  it("should show number of selected courses", () => {
-    cy.get("[data-cy=num-selected-courses]").should("contain.text", "0");
+  it("should go to explore page", () => {
+    page.header.goToExplorePage();
 
-    cy.get("[data-cy=course-search-tab] [data-cy=course-listing]")
-      .eq(4)
-      .find("[data-cy=name]")
-      .should("have.text", "ARCH-4770")
-      .click();
-
-    cy.get("[data-cy=num-selected-courses]").should("contain.text", "1");
-  });
-
-  it("should show selected course listing", () => {
-    cy.get("[data-cy=selected-courses-tab] [data-cy=course-listing]").should(
-      "not.exist"
-    );
-
-    cy.get("[data-cy=course-search-tab] [data-cy=course-listing]")
-      .eq(4)
-      .find("[data-cy=name]")
-      .should("have.text", "ARCH-4770")
-      .click();
-
-    cy.get("[data-cy=selected-courses-tab-header]").click();
-
-    cy.get("[data-cy=selected-courses-tab] [data-cy=course-listing]").should(
-      "have.length",
-      1
-    );
-  });
-
-  it("should add first section to schedule", () => {
-    cy.get("[data-cy=schedule] [data-cy=schedule-event]").should("not.exist");
-    cy.get("[data-cy=course-search-tab] [data-cy=course-listing]")
-      .eq(4)
-      .scrollIntoView()
-      .find("[data-cy=name]")
-      .should("have.text", "ARCH-4770")
-      .click();
-    cy.get("[data-cy=schedule] [data-cy=schedule-event]")
-      .should("have.length", 6)
-      .find("[data-cy=name]")
-      .each(($el) => {
-        cy.wrap($el).should("have.text", "ARCH 4770");
-      });
-  });
-
-  it("should show course info modal", () => {
-    cy.get("[data-cy=course-info-modal]").should("not.exist");
-    cy.get("[data-cy=course-search-tab] [data-cy=course-listing]")
-      .eq(4)
-      .scrollIntoView()
-      .find("[data-cy=course-info-button]")
-      .click();
-    cy.get("[data-cy=course-info-modal]").should("contain.text", "ARCH-4770");
+    const explorePage = new CourseExplorerPage();
+    explorePage.assertLoaded();
   });
 });

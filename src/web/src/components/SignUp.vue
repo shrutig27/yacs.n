@@ -1,12 +1,13 @@
 <template>
   <div>
-    <b-form @submit.prevent="onSubmit" v-if="show">
+    <b-form @submit.prevent="onSubmit" v-if="show" data-cy="signup-form">
       <b-form-group id="input-group-2" label="Full Name:" label-for="input-2">
         <b-form-input
           id="input-2"
           v-model="form.name"
           required
           placeholder="Enter name"
+          data-cy="full-name"
         ></b-form-input>
       </b-form-group>
 
@@ -21,6 +22,7 @@
           type="email"
           required
           placeholder="Enter email"
+          data-cy="email"
         ></b-form-input>
       </b-form-group>
 
@@ -35,6 +37,7 @@
           v-model="form.password"
           required
           placeholder="Enter your password"
+          data-cy="password"
         ></b-form-input>
       </b-form-group>
 
@@ -43,6 +46,7 @@
           id="input-5"
           v-model="form.degree"
           :options="degrees"
+          data-cy="degree"
         ></b-form-select>
       </b-form-group>
 
@@ -51,10 +55,11 @@
           id="input-6"
           v-model="form.major"
           placeholder="Eg. CSCI or ITWS"
+          data-cy="major"
         ></b-form-input>
       </b-form-group>
 
-      <button type="submit" class="btn-primary btn w-100">
+      <button type="submit" class="btn-primary btn w-100" data-cy="submit">
         Finish Sign Up!
       </button>
     </b-form>

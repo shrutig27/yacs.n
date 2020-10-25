@@ -1,5 +1,5 @@
 <template>
-  <b-form @submit="onSubmit" @reset="onReset" v-if="showForm">
+  <b-form @submit="onSubmit" @reset="onReset" v-if="showForm" data-cy="login-form">
     <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
       <b-form-input
         id="input-1"
@@ -7,6 +7,7 @@
         type="email"
         required
         placeholder="Enter email"
+        data-cy="email"
       ></b-form-input>
     </b-form-group>
 
@@ -17,10 +18,11 @@
         v-model="form.password"
         required
         placeholder="Enter password"
+        data-cy="password"
       ></b-form-input>
     </b-form-group>
 
-    <b-button type="submit" variant="primary">Submit</b-button>
+    <b-button type="submit" variant="primary" data-cy="submit">Submit</b-button>
   </b-form>
 </template>
 
