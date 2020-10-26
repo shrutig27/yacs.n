@@ -61,6 +61,12 @@ def apiroot():
 
 # - data routes
 
+@app.route('/', methods=['GET'])
+@cache.cached(timeout=Constants.HOUR_IN_SECONDS)
+def checkDatabase(table_name):
+    classes, error = class_info.get_classes_full()
+    return db_conn.tableExists(table_name)
+
 """
 GET /api/class?semester={}&search={}
 Cached: 1 Hour

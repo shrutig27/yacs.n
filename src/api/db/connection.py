@@ -46,6 +46,17 @@ class database():
     def get_connection(self):
         return self.conn
 
+    def tableExists(self, table):
+        exist = False
+        try:
+            cur = self.conn.cursor()
+            query = "SELECT table_name FROM information_schema.tables WHERE table_name='" + table + "'"
+            cur.execute(query)
+            exist = cur.fetchone()[0]
+            cur.close()
+        except psycopg2.Error as e:
+            print(e)
+        return exist
 
 db = database()
 db.connect()
