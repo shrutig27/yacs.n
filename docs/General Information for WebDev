@@ -1,0 +1,43 @@
+Server for Dummies
+
+Server is a centralized machine that many clients connect to via Internet to get information. There are many types of servers, such as Web Servers, Database Server, email servers, etc. You can also include these functionalities in the same server.
+
+Regular desktops can also take on the role of being the server. However, desktops aren’t equipped to be a large server.
+
+A desktop uses a core i7 processor whereas as server’s would use a Xeon processor. 
+
+Xeon processors:
+ECC RAM (error-correcting code) prevents memory errors
+Can put multiple processors on motherboard
+Large cache
+Support larger amounts of RAM
+
+Hosting a website on a server:
+Hosting a website on a server is similar to renting out a storage unit in a storage area. Hosting a website on a server entails renting out a spot on a server for your website. Every single server has its IP (internet protocol) address. Your domain is what references that IP address. 
+
+
+Docker for Dummies
+Docker’s isolated operating systems are stored as image files. Instances of images (class) are called containers (object). Containers can communicate with each other via TCP/IP. However, containers are not persistent, so doesn’t save, hence why there are image files. Then there is also a data layer called volumes, which can be used across containers.  
+
+Comparison to virtual machines
+
+In a computer there is hardware and in order to control the hardware, there is software. Those are the operating systems, such as: Mac OSX, Linux, iOS9, etc. However, you may have heard of splitting the operating systems and you can do this through virtual machine managers, VirtualBox. Then you essentially can have a Linux system working when you are in a iOS9 system, so the Linux system is the guest OS. That’s a virtual machine. 
+
+Virtual Machine:
+So essentially the hierarchy looks like this:
+Infrastructure (Hardware)
+Host OS (IOS9) -> in our example
+Hypervisor -> VirtualBox
+Virtual Machine -> hardware is virtualized, entire operating system
+
+
+Container:
+So essentially the hierarchy looks like this:
+Infrastructure-> (Hardware)
+Host OS -> (iOS9) 
+Docker Daemon 
+Containers
+
+ 
+
+
