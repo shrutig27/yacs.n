@@ -1,0 +1,22 @@
+Popular Front-End Frameworks
+
+Front-End Framework
+Frameworks abstract the interaction with the browser and DOM. With the use of frameworks, we are provided a skeleton. The question of the difference between libraries and frameworks comes up. Essentially libraries are tools that you can use when trying to solve a bigger problem. For instance, in R, you can use the igraph library to help you with network analysis. Frameworks, however, streamline the process of making something. Frameworks have a definite output. With libraries, I can decide what I want to create, but with the use of different frameworks, the output is definite. 
+
+Angular is a typescript based and open source web application framework created by Google (MVC framework). Angular is the second version, so AngularJs refers to the first version of Angular. 
+http://www.netflix.com 
+
+React is a JavaScript library which is used for building UI components and was developed by Facebook.  It is component based. Everything that is seen on the user’s side is made up of components.
+Examples of websites made using React:
+https://www.airbnb.com
+
+Vue takes parts from both Angular and React. Vue also has a two way binding system, you can alter the data from the Javascript or the template. If altered on other side, it updates on the respective other. It also uses declarative models, which makes your code easy to understand. 
+Examples of websites made using Vue:
+https://www.nintendo.com
+
+
+
+Resources:
+https://welearncode.com/what-are-frontend-frameworks/
+https://www.codeinwp.com/blog/angular-vs-vue-vs-react/
+https://prismic.io/blog/3-reasons-to-use-vuejs-in-your-next-web-project
